@@ -11,17 +11,24 @@ class ConversionController extends Controller
         return view('conversion');
     }
 
-    public function convertCelciustoFahrenheit(Request $request)
+
+    public function convert(Request $request)
     {
-        $celsius = $request->input('celsius');
-        $fahrenheit = celsiusToFahrenheit($celsius);
-        return view('conversion', ['fahrenheit' => $fahrenheit]);
+
+        if($request->input('temp_type') == 'celsius'){
+            $celsius = $request->input('temp');
+            $fahrenheit = celsiusToFahrenheit($celsius);
+
+            return view("conversion",compact('fahrenheit'));
+        }
+
+        else if($request->input('temp_type') == 'fahrenheit'){
+            $fahrenheit = $request->input('temp');
+            $celsius = fahrenheitToCelsius($fahrenheit);
+            return view("conversion",compact('celsius'));
+
+        }
+
     }
 
-    public function convertFahrenheittoCelsius(Request $request)
-    {
-        $fahrenheit = $request->input('fahrenheit');
-        $celsius = fahrenheitToCelsius($fahrenheit);
-        return view('conversion', ['celsius' => $celsius]);
-    }
 }

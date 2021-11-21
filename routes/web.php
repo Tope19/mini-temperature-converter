@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ConversionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/')->uses(ConversionController::class . '@index');
+Route::post('/convert')->uses(ConversionController::class . '@convert')->name('convert');
+// Route::post('/convert-fahrenheit-to-celsius')->uses(ConversionController::class . '@convertFahrenheittoCelsius');
+

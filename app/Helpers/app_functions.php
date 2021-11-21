@@ -1,7 +1,7 @@
 <?php
     // Function to convert celsius to fahrenheit
     function celsiusToFahrenheit($celsius) {
-        $fahrenheit = ($celsius * 1.8) + 32;
+        $fahrenheit = ($celsius * 9/5   ) + 32;
         return $fahrenheit;
     }
 
