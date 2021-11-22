@@ -20,14 +20,27 @@ class ConversionTest extends TestCase
         $response->assertStatus(200);
     }
 
-    // Test the conversion of a temperature to celsius or fahrenheit
-    public function test_conversion_of_temperature()
+    // Test the conversion of a temperature to celsius
+    public function test_conversion_of_celsius()
     {
-        $response = $this->get('/convert');
+        $response = $this->post('/convert',[
+            'temp' => '100',
+            'temp_type' => 'celsius'
+        ]);
 
-        $response->assertStatus(200);
-        $response->assertSee('0.00');
-
+        $response->assertStatus(200, "Response:" . $response->getContent());
     }
-    
+
+    // Test the conversion of a temperature to fahrenheit
+    public function test_conversion_of_fahrenheit()
+    {
+        $response = $this->post('/convert',[
+            'temp' => '100',
+            'temp_type' => 'fahrenheit'
+        ]);
+
+        $response->assertStatus(200, "Response:" . $response->getContent());
+        
+    }
+
 }
