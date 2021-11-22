@@ -11,4 +11,6 @@ Clone the repo and cd into it<br>
 composer install<br>
 composer dump-autoload<br>
 Rename or copy .env.example file to .env<br>
-php artisan key:generate
+php artisan key:generate<br>
+php artisan serve<br>
+localhost:8000
