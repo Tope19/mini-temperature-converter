@@ -7,8 +7,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-Clone the repo and cd into it
-composer install
-composer dump autoload
-Rename or copy .env.example file to .env
+Clone the repo and cd into it<br>
+composer install<br>
+composer dump-autoload<br>
+Rename or copy .env.example file to .env<br>
 php artisan key:generate
